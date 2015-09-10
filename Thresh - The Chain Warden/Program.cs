@@ -14,6 +14,8 @@ namespace Thresh___The_Chain_Warden
   class Program
   {
     private static Orbwalking.Orbwalker Orbwalker;
+    
+    public const string ChampionName = "Thresh";
 
     private static Spell Q, Q2, W, E, R; //Same declaration as every new line, null object variable
 
@@ -37,9 +39,10 @@ namespace Thresh___The_Chain_Warden
     }
     static void Game_OnGameLoad(EventArgs args)
     {
-      if (Player.ChampionName != "Thresh") return;
       Notifications.AddNotification("Thresh - The Chain Warden by DanZ Loaded!", 1000);
       FlashSlot = Player.GetSpellSlot("SummonerFlash");
+
+      if (Player.ChampionName != ChampionName) return;
 
       Q = new Spell(SpellSlot.Q, 1100);
       Q2 = new Spell(SpellSlot.Q, 1400);
